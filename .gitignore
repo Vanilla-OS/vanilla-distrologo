@@ -1,0 +1,7 @@
+.vscode/
+mesonbuild/
+build/
+debian/files
+debian/vanilla-distrologo.substvars
+debian/vanilla-distrologo
+debian/.debhelper
