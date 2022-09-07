@@ -1,0 +1,14 @@
+Source: vanilla-distrologo
+Section: utils
+Priority: optional
+Maintainer: Mirko Brombin <send@mirko.pm>
+Build-Depends: debhelper (>= 11),
+Homepage: https://github.com/mirkobrombin/vanilla-distrologo/
+Vcs-Browser: hhttps://github.com/mirkobrombin/vanilla-distrologo
+Vcs-Git: https://github.com/mirkobrombin/vanilla-distrologo.git
+Rules-Requires-Root: no
+
+Package: vanilla-distrologo
+Architecture: all
+Depends: ${misc:Depends}
+Description: Official Vanilla OS Logo
