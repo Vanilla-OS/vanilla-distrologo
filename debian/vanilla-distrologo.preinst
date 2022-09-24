@@ -5,6 +5,8 @@ set -e
 files="
 pixmaps/ubuntu-logo-icon.png
 pixmaps/ubuntu-logo-dark.png
+pixmaps/ubuntu-logo-text.png
+pixmaps/ubuntu-logo-text-dark.png
 "
 
 if [ "$1" = "upgrade" ] || [ "$1" = "install" ]; then
