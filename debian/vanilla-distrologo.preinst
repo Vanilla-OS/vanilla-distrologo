@@ -7,7 +7,6 @@ pixmaps/ubuntu-logo-icon.png
 pixmaps/ubuntu-logo-dark.png
 pixmaps/ubuntu-logo-text.png
 pixmaps/ubuntu-logo-text-dark.png
-plymouth/ubuntu-logo.png
 "
 
 if [ "$1" = "upgrade" ] || [ "$1" = "install" ]; then
@@ -19,6 +18,13 @@ if [ "$1" = "upgrade" ] || [ "$1" = "install" ]; then
 		ln -s /usr/share/pixmaps/vanilla-logo-icon.png \
 		"/usr/share/$item"
 	done
+	
+	dpkg-divert --package vanilla-distrologo --add --rename \
+	--divert "/usr/share/plymouth/ubuntu-logo.png.vanilla" \
+	"/usr/share/plymouth/ubuntu-logo.png"
+
+	ln -s /usr/share/pixmaps/vanilla-logo-text.png \
+	"/usr/share/plymouth/ubuntu-logo.png"
 fi
 
 #DEBHELPER#
