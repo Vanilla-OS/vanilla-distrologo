@@ -30,7 +30,7 @@ if [ "$1" = remove -o "$1" = purge ]; then
 	do
 		unlink "/usr/share/$item"
 		dpkg-divert --package vanilla-distrologo --remove --rename \
-		--divert "/usr/share/$item"".vanilla" "/usr/share/$item"
+			--divert "/usr/share/$item"".vanilla" "/usr/share/$item"
 	done
 fi
 
