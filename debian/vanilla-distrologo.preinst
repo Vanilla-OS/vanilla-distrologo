@@ -23,7 +23,7 @@ if [ "$1" = "upgrade" ] || [ "$1" = "install" ]; then
 		--divert "/usr/share/plymouth/ubuntu-logo.png.vanilla" \
 			"/usr/share/plymouth/ubuntu-logo.png"
 
-	ln -s /usr/share/pixmaps/vanilla-logo-text.png \
+	ln -s /usr/share/pixmaps/vanilla-logo-text-dark.png \
 		"/usr/share/plymouth/ubuntu-logo.png"
 fi
 
