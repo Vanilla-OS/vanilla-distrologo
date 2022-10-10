@@ -12,6 +12,12 @@ pixmaps/ubuntu-logo-text-dark.png
 if [ "$1" = "upgrade" ] || [ "$1" = "install" ]; then
 	for item in $files 
 	do
+		# remove old diverted file
+		unlink "/usr/share/$item"
+		dpkg-divert --package vanilla-distrologo --remove --rename \
+			--divert "/usr/share/$item"".vanilla" "/usr/share/$item"
+			
+		# add new diverted files
 		dpkg-divert --package vanilla-distrologo --add --rename \
 			--divert "/usr/share/$item"".vanilla" "/usr/share/$item"
 
@@ -19,6 +25,13 @@ if [ "$1" = "upgrade" ] || [ "$1" = "install" ]; then
 			"/usr/share/$item"
 	done
 	
+	# remove plymouth diverts
+	unlink /usr/share/plymouth/ubuntu-logo.png
+	dpkg-divert --package vanilla-distrologo --remove --rename \
+		--divert "/usr/share/plymouth/ubuntu-logo.png"".vanilla" \
+		/usr/share/plymouth/ubuntu-logo.png
+
+	# add plymouth diverts
 	dpkg-divert --package vanilla-distrologo --add --rename \
 		--divert "/usr/share/plymouth/ubuntu-logo.png.vanilla" \
 			"/usr/share/plymouth/ubuntu-logo.png"
